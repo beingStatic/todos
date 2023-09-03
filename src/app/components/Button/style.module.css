@@ -1,0 +1,48 @@
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffb446;
+  color: #000000;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  cursor: pointer;
+  height: 54px;
+}
+
+.buttonIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  left: 12px;
+}
+
+.buttonIconImage {
+  color: #506758;
+  font-size: 16px;
+}
+
+.button:hover .buttonText {
+  transform: translateX(-45px);
+}
+
+.buttonText {
+  margin-left: 45px;
+  transition: all 0.3s ease-in-out;
+  padding: 4px;
+  display: block;
+}
+
+.button .buttonIcon {
+  left: 8px;
+  right: auto;
+}
