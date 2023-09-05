@@ -20,9 +20,10 @@ const Collections = async () => {
     <div>
       {collections.map((item) => {
         return (
-          <h1 className="text-5xl font-bold my-4" key={item.id}>
-            {item.title}
-          </h1>
+          <div key={item.id}>
+            <h1 className="text-5xl font-bold my-4">{item.title}</h1>
+            <p>{item.content}</p>
+          </div>
         );
       })}
       <div>

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 const CreateTodo = () => {
   const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
 
   const handleSubmit = async (e) => {
     // e.preventDefault();
@@ -19,7 +20,7 @@ const CreateTodo = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ title }),
+        body: JSON.stringify({ title, content }),
       });
 
       if (response.ok) {
@@ -43,9 +44,14 @@ const CreateTodo = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+        <input
+          type="text"
+          placeholder="Content"
+          className="text-3xl border p-4"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
         <button type="submit">
-          {' '}
-          {/* Add type="submit" to the button */}
           <p className="text-3xl font-bold">SUBMIT</p>
         </button>
       </form>
