@@ -1,5 +1,6 @@
 import React from 'react';
 import CreateTodo from '../components/CreateTodo/CreateTodo';
+import Task from '../components/Task/Task';
 
 const fetchCollections = async () => {
   try {
@@ -19,12 +20,7 @@ const Collections = async () => {
   return (
     <div>
       {collections.map((item) => {
-        return (
-          <div key={item.id}>
-            <h1 className="text-5xl font-bold my-4">{item.title}</h1>
-            <p>{item.content}</p>
-          </div>
-        );
+        return <Task key={item.id} title={item.title} content={item.content} />;
       })}
       <div>
         <CreateTodo />

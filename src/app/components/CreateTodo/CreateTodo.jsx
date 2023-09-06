@@ -40,19 +40,19 @@ const CreateTodo = () => {
         <input
           type="text"
           placeholder="Create Todos"
-          className="text-3xl border p-4"
+          className="text-3xl border p-4 block"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <input
           type="text"
           placeholder="Content"
-          className="text-3xl border p-4"
+          className="text-3xl border p-4 block"
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-        <button type="submit">
-          <p className="text-3xl font-bold">SUBMIT</p>
+        <button type="submit" className="mt-4">
+          <p className="text-3xl font-bold my-4">SUBMIT</p>
         </button>
       </form>
     </div>
