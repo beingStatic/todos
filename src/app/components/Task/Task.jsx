@@ -1,6 +1,24 @@
+'use client';
+import Link from 'next/link';
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
-const Task = ({ title, content }) => {
+const Task = ({ title, content, id }) => {
+  const router = useRouter();
+  const removeCollection = async () => {
+    const confirmed = confirm('Are you Sure');
+    if (confirmed) {
+      const response = await fetch(
+        `http://localhost:3000/api/collections?id=${id}`,
+        {
+          method: 'DELETE',
+        }
+      );
+      if (response.ok) {
+        router.refresh();
+      }
+    }
+  };
   return (
     <div className="flex items-center py-5 w-1/2 justify-between">
       <div>
@@ -8,8 +26,12 @@ const Task = ({ title, content }) => {
         <p className="text-2xl">{content}</p>
       </div>
       <div>
-        <span className="text-xl cursor-pointer">Edit</span>&nbsp;
-        <span className="text-xl cursor-pointer">Delete</span>
+        <Link href={`/edit-collection/${id}`}>
+          <span className="text-xl cursor-pointer">Edit</span>&nbsp;
+        </Link>
+        <span className="text-xl cursor-pointer" onClick={removeCollection}>
+          Delete
+        </span>
       </div>
     </div>
   );

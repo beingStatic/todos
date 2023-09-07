@@ -20,7 +20,14 @@ const Collections = async () => {
   return (
     <div>
       {collections.map((item) => {
-        return <Task key={item.id} title={item.title} content={item.content} />;
+        return (
+          <Task
+            key={item.id}
+            title={item.title}
+            content={item.content}
+            id={item._id}
+          />
+        );
       })}
       <div>
         <CreateTodo />
