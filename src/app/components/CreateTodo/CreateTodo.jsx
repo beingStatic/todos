@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import AnimatedButton from '../AnimedButton/AnimatedButton';
 
 const CreateTodo = () => {
   const [title, setTitle] = useState('');
@@ -51,9 +52,10 @@ const CreateTodo = () => {
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-        <button type="submit" className="mt-4">
+        {/* <button type="submit" className="mt-4">
           <p className="text-3xl font-bold my-4">SUBMIT</p>
-        </button>
+        </button> */}
+        <AnimatedButton title="Submit" />
       </form>
     </div>
   );

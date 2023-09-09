@@ -1,0 +1,33 @@
+.button {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid #000000;
+  color: #000000;
+  padding: 0.5rem 3rem;
+  position: relative;
+  isolation: isolate;
+  border-radius: 3.5rem;
+  font-size: 2rem;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  color: #ffffff;
+  background-color: #626cf7;
+  inset: 0;
+  scale: 0 1;
+  transition: scale 450ms;
+  transform-origin: right;
+  border-radius: 3rem;
+}
+.button:hover::after,
+.button:focus-visible::after {
+  transform-origin: left;
+  scale: 1 1;
+  border-radius: 3rem;
+}
