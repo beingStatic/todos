@@ -2,13 +2,15 @@
 
 import React, { useState } from 'react';
 import AnimatedButton from '../AnimedButton/AnimatedButton';
+import { useRouter } from 'next/navigation';
 
 const CreateTodo = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
 
     if (!title) {
       alert('Please enter the title name');
@@ -27,6 +29,9 @@ const CreateTodo = () => {
       if (response.ok) {
         console.log('Success');
         console.log(response);
+        router.refresh();
+        setTitle('');
+        setContent('');
       } else {
         throw new Error('Failed');
       }
@@ -52,10 +57,7 @@ const CreateTodo = () => {
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-        {/* <button type="submit" className="mt-4">
-          <p className="text-3xl font-bold my-4">SUBMIT</p>
-        </button> */}
-        <AnimatedButton title="Submit" />
+        <AnimatedButton title="Submit" onClick={handleSubmit} />
       </form>
     </div>
   );
