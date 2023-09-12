@@ -2,6 +2,8 @@
 import Link from 'next/link';
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import { FaRegEdit } from 'react-icons/fa';
+import { FaRegTrashAlt } from 'react-icons/fa';
 
 const Task = ({ title, content, id }) => {
   const router = useRouter();
@@ -25,12 +27,15 @@ const Task = ({ title, content, id }) => {
         <h3 className="text-3xl font-bold">{title}</h3>
         <p className="text-2xl">{content}</p>
       </div>
-      <div>
+      <div className="flex">
         <Link href={`/edit-collection/${id}`}>
-          <span className="text-xl cursor-pointer">Edit</span>&nbsp;
+          <span className="text-xl cursor-pointer">
+            <FaRegEdit />
+          </span>
+          &nbsp;&nbsp;
         </Link>
         <span className="text-xl cursor-pointer" onClick={removeCollection}>
-          Delete
+          <FaRegTrashAlt />
         </span>
       </div>
     </div>

@@ -19,6 +19,7 @@ const Collections = async () => {
   const { collections } = await fetchCollections();
   return (
     <div>
+      <h1 className="text-3xl font-medium mt-4">List of Tasks</h1>
       {collections.map((item) => {
         return (
           <Task
@@ -29,6 +30,9 @@ const Collections = async () => {
           />
         );
       })}
+      <hr />
+      <h1 className="text-3xl font-medium my-4">Enter the Task</h1>
+
       <div>
         <CreateTodo />
       </div>

@@ -46,14 +46,14 @@ const CreateTodo = () => {
         <input
           type="text"
           placeholder="Create Todos"
-          className="text-3xl border p-4 block"
+          className="text-2xl border p-4 block w-1/2 mb-4"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <input
           type="text"
           placeholder="Content"
-          className="text-3xl border p-4 block"
+          className="text-2xl border p-4 block w-1/2"
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
