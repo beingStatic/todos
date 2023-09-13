@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import AnimatedButton from '../AnimedButton/AnimatedButton';
 
 const EditCollectionForm = ({ id, title, content }) => {
   const [newTitle, setNewTitle] = useState(title);
@@ -45,9 +46,7 @@ const EditCollectionForm = ({ id, title, content }) => {
           value={newContent}
           onChange={(event) => setNewContent(event.target.value)}
         />
-        <button type="submit" className="mt-4">
-          <p className="text-3xl font-bold my-4">SUBMIT</p>
-        </button>
+        <AnimatedButton title="Submit" onClick={handleSubmit} />
       </form>
     </div>
   );

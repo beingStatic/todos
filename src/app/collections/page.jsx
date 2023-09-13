@@ -19,7 +19,6 @@ const Collections = async () => {
   const { collections } = await fetchCollections();
   return (
     <div>
-      <h1 className="text-3xl font-medium mt-4">List of Tasks</h1>
       {collections.map((item) => {
         return (
           <Task

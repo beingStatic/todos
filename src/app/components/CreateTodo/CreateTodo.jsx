@@ -7,13 +7,14 @@ import { useRouter } from 'next/navigation';
 const CreateTodo = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [errorStatus, setErrorStatus] = useState(false);
   const router = useRouter();
-
+  const errorMessage = 'Please Enter the fields first';
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!title) {
-      alert('Please enter the title name');
+      setErrorStatus(true);
       return; // Exit the function early if title is empty
     }
 
@@ -27,6 +28,7 @@ const CreateTodo = () => {
       });
 
       if (response.ok) {
+        setErrorStatus(false);
         console.log('Success');
         console.log(response);
         router.refresh();
@@ -57,6 +59,9 @@ const CreateTodo = () => {
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
+        {errorStatus && (
+          <p className="text-2xl text-red-600 mt-4">{errorMessage}</p>
+        )}
         <AnimatedButton title="Submit" onClick={handleSubmit} />
       </form>
     </div>
